@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-
+const productsList = require("./database/product");
 const PORT = process.env.PORT || 3000;
 
 // Налаштування для читання даних з форм
@@ -19,7 +19,9 @@ app.set("views", __dirname + "/views");
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
-
+app.get("/catalog", (req, res) => {
+  res.render("catalog.ejs", { items: productsList });
+});
 app.listen(PORT, () => {
-    console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);
+  console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);
 });

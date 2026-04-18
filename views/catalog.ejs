@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог - KlyovPlace</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="page-title">Каталог рибальських товарів</h1>
+        
+        <div class="product-grid">
+            <% items.forEach(function(product) { %>
+                <div class="product-card">
+                    <div class="product-badge"><%= product.category %></div>
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                    
+                    <div class="product-info">
+                        <h3><%= product.name %></h3>
+                        <p class="product-price"><%= product.price %> грн</p>
+                        <a href="/product/<%= product.id %>" class="btn-buy">Детальніше</a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+</body>
+</html>

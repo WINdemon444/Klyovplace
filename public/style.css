@@ -1,0 +1,153 @@
+/* Базові налаштування сторінки */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #eef2f3; /* Світло-сірий фон, як вода в похмурий день */
+    color: #333;
+}
+
+/* Головний блок, вирівнюємо контент по центру */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 80px auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Блок з текстом зліва */
+.hero-text {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-text h1 {
+    color: #1e272e; /* Дуже темно-синій */
+    font-size: 52px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #485460;
+    margin-bottom: 35px;
+}
+
+/* Стиль зеленої кнопки */
+.btn {
+    background-color: #05c46b; /* Свіжий зелений колір */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(5, 196, 107, 0.4);
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: #04aa5d;
+    transform: translateY(-2px); /* Кнопка трохи піднімається при наведенні */
+}
+
+/* Блок з фотографією справа */
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+/* Заголовок сторінки */
+.page-title {
+    text-align: center;
+    margin: 40px 0;
+    color: #1e272e;
+}
+
+/* Контейнер для сітки товарів */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Автоматично підлаштовує кількість колонок */
+    gap: 30px; /* Відстань між картками */
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+/* Картка товару */
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    position: relative;
+    border: 1px solid #ddd;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Плашка категорії */
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(30, 39, 46, 0.8);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 1;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Щоб фото не розтягувалися, а обрізалися під розмір */
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+.product-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #05c46b;
+    margin-bottom: 20px;
+}
+
+/* Кнопка в картці */
+.btn-buy {
+    display: block;
+    background: #1e272e;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-buy:hover {
+    background: #485460;
+}
