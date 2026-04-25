@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= product.name %> - KlyovPlace</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <div class="container product-page">
+      <a href="/catalog" class="back-link">← Назад до каталогу</a>
+
+      <div class="product-details-box">
+        <div class="product-image-large">
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
+        </div>
+
+        <div class="product-info-large">
+          <span class="category-tag"><%= product.category %></span>
+          <h1><%= product.name %></h1>
+          <p class="price-large"><%= product.price %> грн</p>
+
+          <div class="description-box">
+            <h3>Опис товару:</h3>
+            <p><%= product.description %></p>
+          </div>
+
+          <button class="btn-add-cart">Додати в кошик 🛒</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
