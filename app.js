@@ -15,6 +15,9 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 
+const cart = [];
+app.locals.cart = cart; //is for all files ejs
+
 // Головна сторінка
 app.get("/", (req, res) => {
   res.render("index.ejs");
@@ -41,6 +44,21 @@ app.get("/product/:id", (req, res) => {
       );
   }
 });
+
+app.post("/add_to_cart", (req, res) => {
+  const productId = req.body.productId;
+  // Знаходимо весь об'єкт товару в базі
+  const product = productsList.find((item) => item.id === productId);
+
+  // Якщо товар знайдено, кладемо його в кошик
+  if (product) {
+    cart.push(product);
+  }
+
+  // Після додавання повертаємо користувача назад у каталог (або на попередню сторінку)
+  res.redirect("/catalog");
+});
+
 app.listen(PORT, () => {
   console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);
 });

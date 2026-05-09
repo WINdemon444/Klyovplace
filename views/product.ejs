@@ -25,8 +25,12 @@
             <h3>Опис товару:</h3>
             <p><%= product.description %></p>
           </div>
-
-          <button class="btn-add-cart">Додати в кошик 🛒</button>
+          <form action="/add_to_cart" method="post">
+            <input type="hidden" name="productId" value="<%= product.id %>" />
+            <button type="submit" class="btn-add-cart">
+              Додати в кошик 🛒
+            </button>
+          </form>
         </div>
       </div>
     </div>
