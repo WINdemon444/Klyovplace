@@ -339,3 +339,98 @@ body {
   box-shadow: 5px 5px 0px #04aa5d; /* Жовта тінь під відео */
   max-width: 100%; /* Щоб плеєр не вилазив за краї на малих екранах */
 }
+/* =========================================
+   СТОРІНКА КОШИКА
+   ========================================= */
+.cart-page {
+    max-width: 800px; /* Робимо кошик трохи вужчим для зручності читання */
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.empty-cart p {
+    font-size: 20px;
+    color: #485460;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+/* Останній елемент без лінії знизу */
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #f1f2f6;
+    padding: 5px;
+}
+
+.cart-item-info {
+    flex: 1; /* Займає весь вільний простір між фото та ціною */
+    padding: 0 20px;
+}
+
+.cart-item-info h3 {
+    margin: 0 0 5px;
+    color: #1e272e;
+    font-size: 18px;
+}
+
+.text-muted {
+    margin: 0;
+    color: #747d8c;
+    font-size: 14px;
+}
+
+.cart-item-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e272e;
+}
+
+.cart-summary {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 3px dashed #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.highlight-price {
+    color: #05c46b;
+    font-size: 28px;
+}
+
+.btn-checkout {
+    background: #1e272e;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-checkout:hover {
+    background: #05c46b;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мій кошик - KlyovPlace</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container cart-page">
+        <h1>Твій кошик 🛒</h1>
+
+        <!-- Перевіряємо, чи порожній кошик -->
+        <% if(cartItems.length === 0) { %>
+            <div class="empty-cart">
+                <p>Тут поки що порожньо. Час знайти круті снасті!</p>
+                <a href="/catalog" class="btn">Перейти в каталог</a>
+            </div>
+        <% } else { %>
+            <!-- Якщо товари є, виводимо список -->
+            <div class="cart-list">
+                <% cartItems.forEach(function(item) { %>
+                    <div class="cart-item">
+                        <img src="<%= item.image %>" alt="<%= item.name %>">
+                        <div class="cart-item-info">
+                            <h3><%= item.name %></h3>
+                            <p class="text-muted"><%= item.category %></p>
+                        </div>
+                        <div class="cart-item-price">
+                            <%= item.price %> грн
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <!-- Блок із загальною сумою -->
+            <div class="cart-summary">
+                <h2>Разом до сплати: <span class="highlight-price"><%= totalSum %> грн</span></h2>
+                <button class="btn-checkout">Оформити замовлення</button>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

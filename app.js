@@ -58,7 +58,13 @@ app.post("/add_to_cart", (req, res) => {
   // Після додавання повертаємо користувача назад у каталог (або на попередню сторінку)
   res.redirect("/catalog");
 });
-
+app.get("/cart", (req, res) => {
+  let totalSum = 0;
+  cart.forEach((product) => {
+    totalSum += product.price;
+    res.render("cart.ejs", { cartItems: cart, totalSum: totalSum });
+  });
+});
 app.listen(PORT, () => {
   console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);
 });
