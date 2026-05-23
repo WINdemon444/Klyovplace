@@ -58,12 +58,29 @@ app.post("/add_to_cart", (req, res) => {
   // Після додавання повертаємо користувача назад у каталог (або на попередню сторінку)
   res.redirect("/catalog");
 });
+
+// POST-запит для видалення товару з кошика
+app.post("/remove-from-cart", (req, res) => {
+  const productId = req.body.productId;
+
+  // Знаходимо індекс ПЕРШОГО товару з таким ID у кошику
+  const index = cart.findIndex((item) => item.id === productId);
+
+  // Якщо товар знайдено (індекс не -1), видаляємо рівно 1 елемент
+  if (index !== -1) {
+    cart.splice(index, 1);
+  }
+
+  // Оновлюємо сторінку кошика
+  res.redirect("/cart");
+});
+
 app.get("/cart", (req, res) => {
   let totalSum = 0;
   cart.forEach((product) => {
     totalSum += product.price;
-    res.render("cart.ejs", { cartItems: cart, totalSum: totalSum });
   });
+  res.render("cart.ejs", { cartItems: cart, totalSum: totalSum });
 });
 app.listen(PORT, () => {
   console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);

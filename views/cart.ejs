@@ -30,6 +30,10 @@
                         <div class="cart-item-price">
                             <%= item.price %> грн
                         </div>
+                        <form action="/remove-from-cart" method="POST" class="remove-form">
+                            <input type="hidden" name="productId" value="<%= item.id %>"/>
+                            <button type="submit" class="btn-remove" title="Видалити товар">❌</button>
+                        </form>
                     </div>
                 <% }); %>
             </div>

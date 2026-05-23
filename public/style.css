@@ -434,3 +434,24 @@ body {
 .btn-checkout:hover {
     background: #05c46b;
 }
+/* Стилі для кнопки видалення з кошика */
+.remove-form {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s;
+    padding: 5px;
+}
+
+.btn-remove:hover {
+    opacity: 1;
+    transform: scale(1.2); /* Злегка збільшуємо при наведенні */
+}
