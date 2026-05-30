@@ -22,9 +22,11 @@ app.locals.cart = cart; //is for all files ejs
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
+
 app.get("/catalog", (req, res) => {
   res.render("catalog.ejs", { items: productsList });
 });
+
 app.get("/product/:id", (req, res) => {
   // 1. Отримуємо ID товару з посилання
   const requestedId = req.params.id;
@@ -34,7 +36,7 @@ app.get("/product/:id", (req, res) => {
 
   // 3. Якщо товар знайдено - показуємо його сторінку
   if (foundProduct) {
-    res.render("product.ejs", { product: foundProduct });
+    res.render("product.ejs", { product: foundProduct, cart });
   } else {
     // Якщо такого ID не існує (наприклад, хтось ввів /product/123)
     res
@@ -47,12 +49,15 @@ app.get("/product/:id", (req, res) => {
 
 app.post("/add_to_cart", (req, res) => {
   const productId = req.body.productId;
-  // Знаходимо весь об'єкт товару в базі
-  const product = productsList.find((item) => item.id === productId);
+  // Перевіряємо, чи є вже товар із таким ID у кошику
+  const isAlreadyInCart = cart.some((item) => item.id === productId);
 
-  // Якщо товар знайдено, кладемо його в кошик
-  if (product) {
-    cart.push(product);
+  // Якщо товару ще немає в кошику, шукаємо його в базі і додаємо
+  if (!isAlreadyInCart) {
+    const product = productsList.find((item) => item.id === productId);
+    if (product) {
+      cart.push(product); // Додаємо товар як є, без quantity
+    }
   }
 
   // Після додавання повертаємо користувача назад у каталог (або на попередню сторінку)
@@ -82,6 +87,12 @@ app.get("/cart", (req, res) => {
   });
   res.render("cart.ejs", { cartItems: cart, totalSum: totalSum });
 });
+
+app.post("/clear_cart", (req, res) => {
+  cart.length = 0;
+  res.redirect("/cart");
+});
+
 app.listen(PORT, () => {
   console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);
 });

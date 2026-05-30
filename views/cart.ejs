@@ -39,10 +39,17 @@
             </div>
 
             <!-- Блок із загальною сумою -->
-            <div class="cart-summary">
-                <h2>Разом до сплати: <span class="highlight-price"><%= totalSum %> грн</span></h2>
+          <div class="cart-summary">          
+            <h2>Разом: <span class="highlight-price"><%= totalSum %> грн</span></h2>
+            
+            <div class="cart-actions" style="display: flex; gap: 15px; align-items: center;">
+                <form action="/clear_cart" method="POST">
+                    <button type="submit" class="btn-clear-all">Очистити кошик 🗑️</button>
+                </form>
+
                 <button class="btn-checkout">Оформити замовлення</button>
             </div>
+        </div>
         <% } %>
     </div>
 </body>

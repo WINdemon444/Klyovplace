@@ -25,12 +25,18 @@
             <h3>Опис товару:</h3>
             <p><%= product.description %></p>
           </div>
-          <form action="/add_to_cart" method="post">
-            <input type="hidden" name="productId" value="<%= product.id %>" />
-            <button type="submit" class="btn-add-cart">
-              Додати в кошик 🛒
-            </button>
-          </form>
+          <% const isInCart = cart.some(item => item.id === product.id); %>
+
+          <% if (isInCart) { %>
+              <button class="btn-add-cart" disabled style="background: #bdc3c7; cursor: not-allowed; box-shadow: none;">
+                  Вже у кошику ✔️
+              </button>
+          <% } else { %>
+              <form action="/add_to_cart" method="POST">
+                  <input type="hidden" name="productId" value="<%= product.id %>">
+                  <button type="submit" class="btn-add-cart">Додати в кошик 🛒</button>
+              </form>
+          <% } %>
         </div>
       </div>
     </div>

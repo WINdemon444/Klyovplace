@@ -34,7 +34,8 @@ const productsList = [
     category: "Fishing reels",
     price: 1000,
     description: "The reel is very useful for spinnings and just casting",
-    image: "https://www.quantumfishing.com/contentassets/a93d915603aa46d29e8bde679c458eb8/quantum_benchmark_reel.png",
+    image:
+      "https://www.quantumfishing.com/contentassets/a93d915603aa46d29e8bde679c458eb8/quantum_benchmark_reel.png",
   },
   {
     id: "bag of hooks",
@@ -57,16 +58,20 @@ const productsList = [
     name: "upstream sinkers",
     category: "Fishing equipment",
     price: 200,
-    description: "The sinkers are different weight and very usefull for lakes and rivers.",
-    image: "https://charkbait.com/cdn/shop/files/valley-hill-tg-dropshot-sinkers-tungsten.webp?v=1713914691&width=1214",
+    description:
+      "The sinkers are different weight and very usefull for lakes and rivers.",
+    image:
+      "https://charkbait.com/cdn/shop/files/valley-hill-tg-dropshot-sinkers-tungsten.webp?v=1713914691&width=1214",
   },
   {
     id: "line cutters",
     name: "line cutter",
     category: "Fishing equipment",
     price: 200,
-    description: "this is very handy when it comes to cutting line or when your line is stuck in a tree",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwN1rR37TK1iAT2E4yLbpEk7B1FX26Hxkeg&s",
+    description:
+      "this is very handy when it comes to cutting line or when your line is stuck in a tree",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwN1rR37TK1iAT2E4yLbpEk7B1FX26Hxkeg&s",
   },
 ];
 module.exports = productsList;
