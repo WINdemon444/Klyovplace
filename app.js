@@ -93,6 +93,18 @@ app.post("/clear_cart", (req, res) => {
   res.redirect("/cart");
 });
 
+app.get("/checkout", (req, res) => {
+  //if cart is empty sent client to cart
+  if (cart.length == 0) {
+    return res.redirect("/cart");
+  }
+  let totalSum = 0;
+  cart.forEach((item) => (totalSum += Number(item.price)));
+
+  // Віддаємо сторінку checkout.ejs і передаємо туди кошик та суму
+  res.render("checkout.ejs", { cartItems: cart, totalSum: totalSum });
+});
+
 app.listen(PORT, () => {
   console.log(`Сервер KlyovPlace запущено на http://localhost:${PORT}`);
 });
