@@ -24,7 +24,23 @@ app.get("/", (req, res) => {
 });
 
 app.get("/catalog", (req, res) => {
-  res.render("catalog.ejs", { items: productsList });
+    // Спочатку беремо всі товари
+    let results = productsList;
+
+    // Перевіряємо, чи ввів користувач щось у пошук (параметр q)
+    if (req.query.q) {
+        // Переводимо запит у нижній регістр (щоб "Воблер" і "воблер" шукались однаково)
+        const searchQuery = req.query.q.toLowerCase();
+        
+        // Фільтруємо масив
+        results = productsList.filter(product => {
+            // Перевіряємо, чи є шукане слово у назві товару
+            return product.name.toLowerCase().includes(searchQuery);
+        });
+    }
+
+    // Віддаємо сторінку каталогу, але передаємо туди вже відфільтрований масив results
+    res.render("catalog", { items: results });
 });
 
 app.get("/product/:id", (req, res) => {

@@ -1,12 +1,33 @@
 <header class="main-header">
-    <div class="logo">
-        <a href="/">🎣 KlyovPlace</a>
-    </div>
-    <nav class="main-nav">
-        <ul>
-            <li><a href="/">Головна</a></li>
-            <li><a href="/catalog">Каталог</a></li>
-            <li><a href="/cart" class="cart-link">Кошик (<%=cart.length%>)</a></li>
-        </ul>
-    </nav>
+  <div class="logo">
+    <a href="/">🎣 KlyovPlace</a>
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/">Головна</a></li>
+      <li><a href="/catalog">Каталог</a></li>
+      <form action="/catalog" method="GET" style="display: flex; gap: 5px">
+        <input
+          type="text"
+          name="q"
+          placeholder="Пошук снастей..."
+          style="padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc"
+        />
+        <button
+          type="submit"
+          style="
+            padding: 5px 10px;
+            border: none;
+            background: #05c46b;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+          "
+        >
+          🔍
+        </button>
+      </form>
+      <li><a href="/cart" class="cart-link">Кошик (<%=cart.length%>)</a></li>
+    </ul>
+  </nav>
 </header>
