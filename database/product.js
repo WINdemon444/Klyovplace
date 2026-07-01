@@ -73,5 +73,15 @@ const productsList = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwN1rR37TK1iAT2E4yLbpEk7B1FX26Hxkeg&s",
   },
+  {
+    id: "case",
+    name: "rod pole case",
+    category: "Fishing equipment",
+    price: 500,
+    description:
+      "this is very handy when it comes to carry rods with you.",
+    image:
+      "https://mudhole.com/cdn/shop/files/Winn-Straight-Taper-35-Rear-Grip_BurntOrange-1.webp?v=1756489730&width=4000",
+  },
 ];
 module.exports = productsList;
