@@ -8,9 +8,16 @@
 </head>
 <body>
 <%- include('partials/header') %>
-    <div class="container">
-        <h1 class="page-title">Каталог рибальських товарів</h1>
-        
+                <div class="container">
+                    <h1 class="page-title">Каталог рибальських товарів</h1>
+                    <div class="sorting-panel" style="margin-bottom: 30px; display: flex; justify-content: flex-end; align-items: center; gap: 15px;">
+                <span style="color: #485460; font-weight: bold;">Сортувати за ціною:</span>
+                
+                <a href="/catalog?sort=cheap" class="btn-sort">⬇️ Спочатку дешеві</a>
+                <a href="/catalog?sort=expensive" class="btn-sort">⬆️ Спочатку дорогі</a>
+                <a href="/catalog" class="btn-sort btn-sort-clear">Скинути</a>
+            </div>
+
         <div class="product-grid">
             <% items.forEach(function(product) { %>
                 <div class="product-card">

@@ -24,22 +24,26 @@ app.get("/", (req, res) => {
 });
 
 app.get("/catalog", (req, res) => {
-    // Спочатку беремо всі товари
-    let results = productsList;
+    // 1. РОБИМО КОПІЮ бази даних за допомогою оператора spread [...]
+    // Це потрібно, щоб сортування не зламало оригінальний порядок товарів.
+    let results = [...productsList];
 
-    // Перевіряємо, чи ввів користувач щось у пошук (параметр q)
+    // 2. Пошук (якщо користувач щось шукав)
     if (req.query.q) {
-        // Переводимо запит у нижній регістр (щоб "Воблер" і "воблер" шукались однаково)
         const searchQuery = req.query.q.toLowerCase();
-        
-        // Фільтруємо масив
-        results = productsList.filter(product => {
-            // Перевіряємо, чи є шукане слово у назві товару
-            return product.name.toLowerCase().includes(searchQuery);
-        });
+        results = results.filter(product => product.name.toLowerCase().includes(searchQuery));
     }
 
-    // Віддаємо сторінку каталогу, але передаємо туди вже відфільтрований масив results
+    // 3. Сортування за ціною
+    if (req.query.sort === "cheap") {
+        // Від найдешевших до найдорожчих
+        results.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (req.query.sort === "expensive") {
+        // Від найдорожчих до найдешевших
+        results.sort((a, b) => Number(b.price) - Number(a.price));
+    }
+
+    // Віддаємо сторінку з готовим масивом
     res.render("catalog", { items: results });
 });
 
