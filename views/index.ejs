@@ -8,18 +8,47 @@
   </head>
   <body>
     <%- include('partials/header') %>
-    <div class="hero-section">
+    
+    <section class="hero-section">
       <div class="hero-text">
         <h1>KlyovPlace</h1>
         <p>
           Твій ідеальний магазин для ідеальної риболовлі. У нас є все: від
-          гострих гачків до професійних наметів для довгого відпочинку на
-          природі.
+          гострих гачків до професійних наметів для довгого відпочинку на природі.
         </p>
-        <a href="/catalog" class="btn">Перейти до товарів</a>
-        <br /><br />
-        <div class="video-container">
-          <iframe
+        <a href="/catalog" class="btn">Перейти до товарів 🎣</a>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://thumbs.dreamstime.com/b/young-man-fishing-sunset-lake-102348836.jpg"
+          alt="Рибалка на озері"
+        />
+      </div>
+    </section>
+
+    <section class="features-section container">
+      <h2>Чому обирають нас?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>🚚 Зручна доставка</h3>
+          <p>Максимально швидка доставка з Києва до Дніпра чи Вінниці. Вартість доставки всього 10-15 грн!</p>
+        </div>
+        <div class="feature-card">
+          <h3>📞 Завжди на зв'язку</h3>
+          <p>Виникли питання чи потрібна порада щодо вибору снастей? Телефонуй: <strong>+380974537051</strong>.</p>
+        </div>
+        <div class="feature-card">
+          <h3>💯 Якість гарантовано</h3>
+          <p>Перевірені бренди та спорядження, яке не підведе у вирішальний момент виважування трофею.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section container">
+      <h2>Відео з нашої риболовлі</h2>
+      <div class="video-container">
+        <iframe
             width="560"
             height="315"
             src="https://www.youtube.com/embed/iuHbGm28iXs?si=3-imk7Mn918Ebp9m"
@@ -35,20 +64,14 @@
             "
             allowfullscreen
           ></iframe>
-        </div>
-        <p>
-          The delivery is maximum from kyiv to dnipro or to viniza (ukraine) the
-          delivery is from 10 grn to 15 grn call +380974537051 have a great time
-          shopping
-        </p>
+          
       </div>
+    </section>
 
-      <div class="hero-image">
-        <img
-          src="https://www.saltwatersportsman.com/wp-content/uploads/2021/09/img_9618kr-mcmurray-1024x768.jpg"
-          alt="Рибалка на озері"
-        />
+    <footer>
+      <div class="container text-center">
+        <p>&copy; 2026 KlyovPlace. Бажаємо вдалого шопінгу та гарного кльову!</p>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
